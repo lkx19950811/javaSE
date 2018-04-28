@@ -11,7 +11,7 @@ import java.util.concurrent.ForkJoinTask;
  * @date 2018-04-28 17:21
  * @description:
  */
-public class TestFork {
+public class TestFork { //
     @Test
     public void testFork(){
         long[] array = new long[400];
@@ -23,12 +23,25 @@ public class TestFork {
         Long result = fjp.invoke(task);
         long endTime = System.currentTimeMillis();
         System.out.println("Fork/join sum: " + result + " in " + (endTime - startTime) + " ms.");
-    }
 
+        //直接for循环计算
+        startTime = System.currentTimeMillis();
+        result = sum(array);
+        endTime = System.currentTimeMillis();
+        System.out.println("for sum: " + result + " in " + (endTime - startTime) + " ms.");
+    }
+    //填充随机数
     private void fillRandom(long[] array) {
         Random random = new Random();
         for (int i = 0; i < array.length; i++){
             array[i] = random.nextLong();
         }
+    }
+    private long sum(long[] arry){
+        long sum = 0;
+        for (int i=0; i<arry.length;i++){
+            sum = sum + arry[i];
+        }
+        return sum;
     }
 }

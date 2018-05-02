@@ -13,13 +13,13 @@ import java.util.concurrent.ForkJoinTask;
  */
 public class TestFork { //
     @Test
-    public void testFork(){
+    public void testFork(){ // 测试fork/join
         long[] array = new long[400];
         fillRandom(array);
         // fork/join task:
         ForkJoinPool fjp = new ForkJoinPool(4); // 最大并发数4
         ForkJoinTask<Long> task = new SumTask(array, 0, array.length);
-        long startTime = System.currentTimeMillis();
+        long startTime = System.currentTimeMillis(); //计算执行时间
         Long result = fjp.invoke(task);
         long endTime = System.currentTimeMillis();
         System.out.println("Fork/join sum: " + result + " in " + (endTime - startTime) + " ms.");
@@ -28,7 +28,7 @@ public class TestFork { //
         startTime = System.currentTimeMillis();
         result = sum(array);
         endTime = System.currentTimeMillis();
-        System.out.println("for sum: " + result + " in " + (endTime - startTime) + " ms.");
+        System.out.println("for/sum: " + result + " in " + (endTime - startTime) + " ms.");
     }
     //填充随机数
     private void fillRandom(long[] array) {

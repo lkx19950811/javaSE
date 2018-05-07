@@ -20,15 +20,15 @@ public class SumTask extends RecursiveTask<Long> {
     }
 
     /**
-     * ±àĞ´Õâ¸öFork/JoinÈÎÎñµÄ¹Ø¼üÔÚÓÚ£¬ÔÚÖ´ĞĞÈÎÎñµÄcompute()·½·¨ÄÚ²¿£¬ÏÈÅĞ¶ÏÈÎÎñÊÇ²»ÊÇ×ã¹»Ğ¡£¬
-     * Èç¹û×ã¹»Ğ¡£¬¾ÍÖ±½Ó¼ÆËã²¢·µ»Ø½á¹û£¨×¢ÒâÄ£ÄâÁË1ÃëÑÓÊ±£©£¬·ñÔò£¬°Ñ×ÔÉíÈÎÎñÒ»²ğÎª¶ş£¬·Ö±ğ¼ÆËãÁ½¸ö×ÓÈÎÎñ£¬
-     * ÔÙ·µ»ØÁ½¸ö×ÓÈÎÎñµÄ½á¹ûÖ®ºÍ¡£
+     * ç¼–å†™è¿™ä¸ªFork/Joinä»»åŠ¡çš„å…³é”®åœ¨äºï¼Œåœ¨æ‰§è¡Œä»»åŠ¡çš„compute()æ–¹æ³•å†…éƒ¨ï¼Œå…ˆåˆ¤æ–­ä»»åŠ¡æ˜¯ä¸æ˜¯è¶³å¤Ÿå°ï¼Œ
+     * å¦‚æœè¶³å¤Ÿå°ï¼Œå°±ç›´æ¥è®¡ç®—å¹¶è¿”å›ç»“æœï¼ˆæ³¨æ„æ¨¡æ‹Ÿäº†1ç§’å»¶æ—¶ï¼‰ï¼Œå¦åˆ™ï¼ŒæŠŠè‡ªèº«ä»»åŠ¡ä¸€æ‹†ä¸ºäºŒï¼Œåˆ†åˆ«è®¡ç®—ä¸¤ä¸ªå­ä»»åŠ¡ï¼Œ
+     * å†è¿”å›ä¸¤ä¸ªå­ä»»åŠ¡çš„ç»“æœä¹‹å’Œã€‚
      * @return
      */
     @Override
     protected Long compute() {
         if (end - start <= THRESHOLD) {
-            // Èç¹ûÈÎÎñ×ã¹»Ğ¡,Ö±½Ó¼ÆËã:
+            // å¦‚æœä»»åŠ¡è¶³å¤Ÿå°,ç›´æ¥è®¡ç®—:
             long sum = 0;
             for (int i = start; i < end; i++) {
                 sum += array[i];
@@ -40,7 +40,7 @@ public class SumTask extends RecursiveTask<Long> {
             System.out.println(String.format("compute %d~%d = %d", start, end, sum));
             return sum;
         }
-        // ÈÎÎñÌ«´ó,Ò»·ÖÎª¶ş:
+        // ä»»åŠ¡å¤ªå¤§,ä¸€åˆ†ä¸ºäºŒ:
         int middle = (end + start) / 2;
         System.out.println(String.format("split %d~%d ==> %d~%d, %d~%d", start, end, start, middle, middle, end));
         SumTask subtask1 = new SumTask(this.array, start, middle);

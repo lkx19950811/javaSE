@@ -8,7 +8,7 @@ import java.util.concurrent.Executors;
 /**
  * @author leo
  * @date 2018-05-04 17:23
- * @description: ÊµÏÖ°´Ë³ĞòÖ´ĞĞ
+ * @description: å®ç°æŒ‰é¡ºåºæ‰§è¡Œ
  */
 public class ThreadSe {
     @Test
@@ -17,7 +17,7 @@ public class ThreadSe {
 
         final Thread join2 = new Thread(() -> {
             try {
-                join1.join();//È·¶¨join1Ö´ĞĞÍê±Ï
+                join1.join();//ç¡®å®šjoin1æ‰§è¡Œå®Œæ¯•
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -27,7 +27,7 @@ public class ThreadSe {
 
         final Thread join3 = new Thread(() -> {
             try {
-                join2.join();//È·¶¨join2Ö´ĞĞÍê±Ï
+                join2.join();//ç¡®å®šjoin2æ‰§è¡Œå®Œæ¯•
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -40,21 +40,21 @@ public class ThreadSe {
     }
 
     /**
-     *  Í¨¹ıÏß³Ì³ØÀ´»ñµÃÏß³Ì
+     *  é€šè¿‡çº¿ç¨‹æ± æ¥è·å¾—çº¿ç¨‹
      */
     @Test
     void pool(){
-        //´´½¨Ïß³Ì³Ø¶ÔÏó,Ê¹ÓÃExecutors¹¤³§Àà
+        //åˆ›å»ºçº¿ç¨‹æ± å¯¹è±¡,ä½¿ç”¨Executorså·¥å‚ç±»
 
         ExecutorService pool = Executors.newFixedThreadPool(2) ;
 
-        //ÏÂÀ´Ê¹ÓÃExecutorService(¸ú×Ù¶à¸öÒì²½ÈÎÎñ)Ò»Ğ©·½·¨
+        //ä¸‹æ¥ä½¿ç”¨ExecutorService(è·Ÿè¸ªå¤šä¸ªå¼‚æ­¥ä»»åŠ¡)ä¸€äº›æ–¹æ³•
 
-        //Ê¹ÓÃsubmit(Runnable target):Ìá½»¶à¸öÈÎÎñ
+        //ä½¿ç”¨submit(Runnable target):æäº¤å¤šä¸ªä»»åŠ¡
         pool.submit(new MyRunnable()) ;
         pool.submit(new MyRunnable()) ;
 
-        //½áÊøÏß³Ì³Ø
+        //ç»“æŸçº¿ç¨‹æ± 
 
         pool.shutdown() ;
 
@@ -63,7 +63,7 @@ public class ThreadSe {
 class MyRunnable implements Runnable {
     @Override
     public void run() {
-        //forÑ­»·
+        //forå¾ªç¯
         for(int x = 0 ; x < 100 ; x ++){
             System.out.println(Thread.currentThread().getName()+":"+x);
         }

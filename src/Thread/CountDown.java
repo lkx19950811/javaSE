@@ -9,28 +9,28 @@ import java.util.concurrent.CyclicBarrier;
 /**
  * @author leo
  * @date 2018-05-07 13:08
- * @description:     countdownLatchºÍcyclicbarrier£¨ÕâÁ½¸ö×ö¶àÏß³Ì¿ØÖÆºÜºÃÓÃ£¬¹¤×÷ÖĞ»á¾­³£ÓÃµ½£©
- *                    countdownLatch£ºÖ÷Ïß³Ì×èÈû£¬µ±¶à¸öÏß³Ìcountdownµ½0£¬Ö÷Ïß³ÌÖ´ĞĞ£»
- *                    cyclicbarrier£º¶à¸öÏß³ÌµÈ´ı£¬µ±¶¼´¦ÓÚµÈ´ı×´Ì¬ÁËÒ»ÆğÖ´ĞĞ£¨ÀàËÆÓÚÈüÅÜ»úÖÆ£©
+ * @description:     countdownLatchå’Œcyclicbarrierï¼ˆè¿™ä¸¤ä¸ªåšå¤šçº¿ç¨‹æ§åˆ¶å¾ˆå¥½ç”¨ï¼Œå·¥ä½œä¸­ä¼šç»å¸¸ç”¨åˆ°ï¼‰
+ *                    countdownLatchï¼šä¸»çº¿ç¨‹é˜»å¡ï¼Œå½“å¤šä¸ªçº¿ç¨‹countdownåˆ°0ï¼Œä¸»çº¿ç¨‹æ‰§è¡Œï¼›
+ *                    cyclicbarrierï¼šå¤šä¸ªçº¿ç¨‹ç­‰å¾…ï¼Œå½“éƒ½å¤„äºç­‰å¾…çŠ¶æ€äº†ä¸€èµ·æ‰§è¡Œï¼ˆç±»ä¼¼äºèµ›è·‘æœºåˆ¶ï¼‰
  */
 public class CountDown {
     @Test
     void countDown() throws InterruptedException {
         CountDownLatch countDownLatch = new CountDownLatch(2);
         new Thread(()->{
-            System.out.println("Ïß³ÌÒ»");
+            System.out.println("çº¿ç¨‹ä¸€");
             countDownLatch.countDown();
         }).start();
         new Thread(()->{
-            System.out.println("Ïß³Ì¶ş");
+            System.out.println("çº¿ç¨‹äºŒ");
             countDownLatch.countDown();
         }).start();
         countDownLatch.await();
-        System.out.println("Ç°ÃæÁ½¸öÏß³ÌÖ´ĞĞÍê±ÏÁË,²ÅÖ´ĞĞÖ÷Ïß³Ì(countDownÎª0Ê±)");
+        System.out.println("å‰é¢ä¸¤ä¸ªçº¿ç¨‹æ‰§è¡Œå®Œæ¯•äº†,æ‰æ‰§è¡Œä¸»çº¿ç¨‹(countDownä¸º0æ—¶)");
     }
 
     /**
-     *  µ±ËùÓĞÏß³Ì¶¼µÈ´ıÍê±Ï,ÔÙÒ»Æğ³ö·¢
+     *  å½“æ‰€æœ‰çº¿ç¨‹éƒ½ç­‰å¾…å®Œæ¯•,å†ä¸€èµ·å‡ºå‘
      */
     public static void main(String[] args) {
         CyclicBarrier cyclicBarrier = new CyclicBarrier(2);
@@ -39,7 +39,7 @@ public class CountDown {
                 long st = System.currentTimeMillis();
                 Thread.sleep(1000);
                 cyclicBarrier.await();
-                System.out.println("Ïß³ÌÒ»µÈ´ıÁË: " + (System.currentTimeMillis() - st)/1000 + "Ãë");
+                System.out.println("çº¿ç¨‹ä¸€ç­‰å¾…äº†: " + (System.currentTimeMillis() - st)/1000 + "ç§’");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (BrokenBarrierException e) {
@@ -50,7 +50,7 @@ public class CountDown {
             try {
                 Thread.sleep(5000);
                 cyclicBarrier.await();
-                System.out.println("Ïß³Ì¶ş");
+                System.out.println("çº¿ç¨‹äºŒ");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (BrokenBarrierException e) {

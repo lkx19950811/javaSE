@@ -8,15 +8,15 @@ package Thread;
 public class ThreadLockTest {
     public static void main(String[] args) {
 
-        //创建资源对象
+        //鍒涘缓璧勬簮瀵硅薄
         ThreadlockRun st = new ThreadlockRun() ;
 
-        //创建线程对象
-        Thread t1 = new Thread(st, "窗口1") ;
-        Thread t2 = new Thread(st, "窗口2") ;
-        Thread t3 = new Thread(st, "窗口3") ;
+        //鍒涘缓绾跨▼瀵硅薄
+        Thread t1 = new Thread(st, "绐楀彛1") ;
+        Thread t2 = new Thread(st, "绐楀彛2") ;
+        Thread t3 = new Thread(st, "绐楀彛3") ;
 
-        //启动线程
+        //鍚姩绾跨▼
         t1.start() ;
         t2.start() ;
         t3.start() ;

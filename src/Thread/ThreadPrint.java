@@ -12,8 +12,8 @@ public class ThreadPrint {
         ThreadPrintRun t = new ThreadPrintRun();
         Thread t1 = new Thread(t);
         Thread t2 = new Thread(t);
-        t1.setName("线程1");
-        t2.setName("线程2");
+        t1.setName("绾跨▼1");
+        t2.setName("绾跨▼2");
         t1.start();
         t2.start();
     }

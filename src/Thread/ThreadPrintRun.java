@@ -4,7 +4,7 @@ package Thread;
 /**
  * @author leo
  * @date 2018-05-02 15:09
- * @description: Á½¸öÏß³ÌÕù¶áËøµÄÀı×Ó,Á½¸öÏß³Ì·Ö¿ªÊä³ö123,456
+ * @description: ä¸¤ä¸ªçº¿ç¨‹äº‰å¤ºé”çš„ä¾‹å­,ä¸¤ä¸ªçº¿ç¨‹åˆ†å¼€è¾“å‡º123,456
  */
 public class ThreadPrintRun implements Runnable {
     int i = 0;
@@ -15,14 +15,14 @@ public class ThreadPrintRun implements Runnable {
         while (true) {
             synchronized (this){
                 if (i <= 100) {
-                    System.out.println(Thread.currentThread().getName() + "ÔËĞĞÖĞ:" + i);
+                    System.out.println(Thread.currentThread().getName() + "è¿è¡Œä¸­:" + i);
                     i++;
                     if (i % 3 ==0){
                         try {
                             notify();
-                            System.out.println(Thread.currentThread().getName() + "½øÈëµÈ´ı,ÊÍ·ÅËø");
+                            System.out.println(Thread.currentThread().getName() + "è¿›å…¥ç­‰å¾…,é‡Šæ”¾é”");
                             wait();
-                            System.out.println(Thread.currentThread().getName() + "»ñµÃËø,¼ÌĞø¿ªÊ¼¸É»î");
+                            System.out.println(Thread.currentThread().getName() + "è·å¾—é”,ç»§ç»­å¼€å§‹å¹²æ´»");
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }

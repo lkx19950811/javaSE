@@ -15,35 +15,35 @@ import java.util.stream.Collectors;
 /**
  * @author leo
  * @date 2018-04-28 17:38
- * @description: lamdba±í´ïÊ½²âÊÔÀà
+ * @description: lamdbaè¡¨è¾¾å¼æµ‹è¯•ç±»
  */
 class Lamdba {
     /**
-     * ¼òµ¥ÊµÏÖRunnable,ÏÈĞ¡ÊÔÅ£µ¶
+     * ç®€å•å®ç°Runnable,å…ˆå°è¯•ç‰›åˆ€
      * (params) -> expression
      * (params) -> statement
      * (params) -> { statements }
      */
     @Test
     void threadTest(){
-        // Java 8Ö®Ç°£º
+        // Java 8ä¹‹å‰ï¼š
         new Thread(new Runnable() {
             @Override
             public void run() {
                 System.out.println("Before Java8, too much code for too little to do");
             }
         }).start();
-        //Java 8·½Ê½£º
+        //Java 8æ–¹å¼ï¼š
         new Thread( () -> System.out.println("In Java8, Lambda expression rocks !!") ).start();
     }
 
 
     /**
-     * Ê¹ÓÃJava 8 lambda±í´ïÊ½½øĞĞÊÂ¼ş´¦Àí
+     * ä½¿ç”¨Java 8 lambdaè¡¨è¾¾å¼è¿›è¡Œäº‹ä»¶å¤„ç†
      */
     @Test
     void testTask(){
-        // Java 8Ö®Ç°£º
+        // Java 8ä¹‹å‰ï¼š
         JButton show =  new JButton("Show");
         show.addActionListener(new ActionListener() {
             @Override
@@ -51,23 +51,23 @@ class Lamdba {
                 System.out.println("Event handling without lambda expression is boring");
             }
         });
-        // Java 8·½Ê½£º
+        // Java 8æ–¹å¼ï¼š
         show.addActionListener((e) -> System.out.println("Light, Camera, Action !! Lambda expressions Rocks"));
     }
 
     /**
-     * Ê¹ÓÃlambda±í´ïÊ½¶ÔÁĞ±í½øĞĞµü´ú
+     * ä½¿ç”¨lambdaè¡¨è¾¾å¼å¯¹åˆ—è¡¨è¿›è¡Œè¿­ä»£
      */
     @Test
     void forEach(){
         List<Integer> list = new ArrayList<Integer>();
         list.add(1);list.add(2);list.add(3);
-        /* ½øĞĞµü´úÑ­»· */
+        /* è¿›è¡Œè¿­ä»£å¾ªç¯ */
         list.forEach(n -> System.out.println(n));
         list.forEach(System.out::println);
     }
     /**
-     * Ê¹ÓÃlambda±í´ïÊ½ºÍº¯ÊıÊ½½Ó¿ÚPredicate
+     * ä½¿ç”¨lambdaè¡¨è¾¾å¼å’Œå‡½æ•°å¼æ¥å£Predicate
      */
     @Test
     void predicate() {
@@ -100,13 +100,13 @@ class Lamdba {
      */
     @Test
     void mapReduce(){
-        // ²»Ê¹ÓÃlambda±í´ïÊ½ÎªÃ¿¸ö¶©µ¥¼ÓÉÏ12%µÄË°
+        // ä¸ä½¿ç”¨lambdaè¡¨è¾¾å¼ä¸ºæ¯ä¸ªè®¢å•åŠ ä¸Š12%çš„ç¨
         List<Integer> costBeforeTax = Arrays.asList(100, 200, 300, 400, 500);
         for (Integer cost : costBeforeTax) {
             double price = cost + .12*cost;
             System.out.println(price);
         }
-        // Ê¹ÓÃlambda±í´ïÊ½
+        // ä½¿ç”¨lambdaè¡¨è¾¾å¼
         List<Integer> costBeforetax = Arrays.asList(100, 200, 300, 400, 500);
         costBeforetax.stream().map((cost) -> cost + .12 * cost).forEach(System.out::println);
     }
@@ -115,8 +115,8 @@ class Lamdba {
      */
     @Test
     void mapReduce2(){
-        // ÎªÃ¿¸ö¶©µ¥¼ÓÉÏ12%µÄË°
-        // ÀÏ·½·¨£º
+        // ä¸ºæ¯ä¸ªè®¢å•åŠ ä¸Š12%çš„ç¨
+        // è€æ–¹æ³•ï¼š
         List<Integer> costBeforeTax = Arrays.asList(100, 200, 300, 400, 500);
         double total = 0;
         for (Integer cost : costBeforeTax) {
@@ -125,13 +125,13 @@ class Lamdba {
         }
         System.out.println("Total : " + total);
 
-        // ĞÂ·½·¨£º
+        // æ–°æ–¹æ³•ï¼š
         List<Integer> costBeforeTax2 = Arrays.asList(100, 200, 300, 400, 500);
         double bill = costBeforeTax2.stream().map((cost) -> cost + .12*cost).reduce((sum, cost) -> sum + cost).get();
         System.out.println("Total : " + bill);
     }
     /**
-     * Í¨¹ı¹ıÂË´´½¨Ò»¸öStringÁĞ±í
+     * é€šè¿‡è¿‡æ»¤åˆ›å»ºä¸€ä¸ªStringåˆ—è¡¨
      */
     @Test
     void filtered (){
@@ -140,36 +140,36 @@ class Lamdba {
         System.out.printf("Original List : %s, filtered list : %s %n", strList, filtered);
     }
     /**
-     * ¶ÔÃ¿¸öÔªËØµ¥¶ÀÓ¦ÓÃº¯Êı
+     * å¯¹æ¯ä¸ªå…ƒç´ å•ç‹¬åº”ç”¨å‡½æ•°
      */
     @Test
     void join(){
-        // ½«×Ö·û´®»»³É´óĞ´²¢ÓÃ¶ººÅÁ´½ÓÆğÀ´
+        // å°†å­—ç¬¦ä¸²æ¢æˆå¤§å†™å¹¶ç”¨é€—å·é“¾æ¥èµ·æ¥
         List<String> G7 = Arrays.asList("USA", "Japan", "France", "Germany", "Italy", "U.K.","Canada");
         String G7Countries = G7.stream().map(x -> x.toUpperCase()).collect(Collectors.joining(" ,"));
         System.out.println(G7Countries);
     }
     /**
-     * Ê¹ÓÃdistinct¹ıÂËÖØ¸´ÔªËØ
+     * ä½¿ç”¨distinctè¿‡æ»¤é‡å¤å…ƒç´ 
      */
     @Test
     void distinct(){
-        // ÓÃËùÓĞ²»Í¬µÄÊı×Ö´´½¨Ò»¸öÕı·½ĞÎÁĞ±í
+        // ç”¨æ‰€æœ‰ä¸åŒçš„æ•°å­—åˆ›å»ºä¸€ä¸ªæ­£æ–¹å½¢åˆ—è¡¨
         List<Integer> numbers = Arrays.asList(9, 10, 3, 4, 7, 3, 4);
         List<Integer> distinct = numbers.stream().map( i -> i*i).distinct().collect(Collectors.toList());
         System.out.printf("Original List : %s,  Square Without duplicates : %s %n", numbers, distinct);
     }
     /**
-     * ¼ÆËã¼¯ºÏÔªËØµÄ×î´óÖµ¡¢×îĞ¡Öµ¡¢×ÜºÍÒÔ¼°Æ½¾ùÖµ
+     * è®¡ç®—é›†åˆå…ƒç´ çš„æœ€å¤§å€¼ã€æœ€å°å€¼ã€æ€»å’Œä»¥åŠå¹³å‡å€¼
      */
     @Test
     void api(){
-        //»ñÈ¡Êı×ÖµÄ¸öÊı¡¢×îĞ¡Öµ¡¢×î´óÖµ¡¢×ÜºÍÒÔ¼°Æ½¾ùÖµ
+        //è·å–æ•°å­—çš„ä¸ªæ•°ã€æœ€å°å€¼ã€æœ€å¤§å€¼ã€æ€»å’Œä»¥åŠå¹³å‡å€¼
         List<Integer> primes = Arrays.asList(2, 3, 5, 7, 11, 13, 17, 19, 23, 29);
         IntSummaryStatistics stats = primes.stream().mapToInt((x) -> x).summaryStatistics();
         /**
-         *  Ê×ÏÈstream()»ñÈ¡Êı×éµÄsource,mapToInt×ª»»,×îºó»ñÈ¡IntSummaryStatistics¶ÔÏó,
-         *  Ö÷ÒªÓÃÓÚÍ³¼ÆÕûĞÎÊı×éÖĞÔªËØµÄ×î´óÖµ£¬×îĞ¡Öµ£¬Æ½¾ùÖµ£¬¸öÊı£¬ÔªËØ×ÜºÍµÈµÈ
+         *  é¦–å…ˆstream()è·å–æ•°ç»„çš„source,mapToIntè½¬æ¢,æœ€åè·å–IntSummaryStatisticså¯¹è±¡,
+         *  ä¸»è¦ç”¨äºç»Ÿè®¡æ•´å½¢æ•°ç»„ä¸­å…ƒç´ çš„æœ€å¤§å€¼ï¼Œæœ€å°å€¼ï¼Œå¹³å‡å€¼ï¼Œä¸ªæ•°ï¼Œå…ƒç´ æ€»å’Œç­‰ç­‰
          */
         System.out.println("Highest prime number in List : " + stats.getMax());
         System.out.println("Lowest prime number in List : " + stats.getMin());

@@ -13,24 +13,24 @@ import java.util.concurrent.ForkJoinTask;
  */
 public class TestFork { //
     @Test
-    public void testFork(){ // ²âÊÔfork/join
+    public void testFork(){ // æµ‹è¯•fork/join
         long[] array = new long[400];
         fillRandom(array);
         // fork/join task:
-        ForkJoinPool fjp = new ForkJoinPool(4); // ×î´ó²¢·¢Êı4
+        ForkJoinPool fjp = new ForkJoinPool(4); // æœ€å¤§å¹¶å‘æ•°4
         ForkJoinTask<Long> task = new SumTask(array, 0, array.length);
-        long startTime = System.currentTimeMillis(); //¼ÆËãÖ´ĞĞÊ±¼ä
+        long startTime = System.currentTimeMillis(); //è®¡ç®—æ‰§è¡Œæ—¶é—´
         Long result = fjp.invoke(task);
         long endTime = System.currentTimeMillis();
         System.out.println("Fork/join sum: " + result + " in " + (endTime - startTime) + " ms.");
 
-        //Ö±½ÓforÑ­»·¼ÆËã
+        //ç›´æ¥forå¾ªç¯è®¡ç®—
         startTime = System.currentTimeMillis();
         result = sum(array);
         endTime = System.currentTimeMillis();
         System.out.println("for/sum: " + result + " in " + (endTime - startTime) + " ms.");
     }
-    //Ìî³äËæ»úÊı
+    //å¡«å……éšæœºæ•°
     private void fillRandom(long[] array) {
         Random random = new Random();
         for (int i = 0; i < array.length; i++){

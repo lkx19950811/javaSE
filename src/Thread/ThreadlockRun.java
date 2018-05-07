@@ -9,42 +9,42 @@ import java.util.concurrent.locks.ReentrantLock;
  * @description:
  */
 public class ThreadlockRun implements Runnable{
-    //¶¨ÒåÒ»¸ö100ÕÅÆ±
+    //å®šä¹‰ä¸€ä¸ª100å¼ ç¥¨
     private int tickets = 100 ;
 
-    //¶¨ÒåÒ»¸ö¾ßÌåËø¶ÔÏó
-    private Lock lock = new ReentrantLock() ;//¾ßÌåµÄlockËø
-    //²¶»ñÒì³£±ê×¼¸ñÊ½:try...catch...finally
-    //±äĞÎ¸ñÊ½:try...finally...
+    //å®šä¹‰ä¸€ä¸ªå…·ä½“é”å¯¹è±¡
+    private Lock lock = new ReentrantLock() ;//å…·ä½“çš„locké”
+    //æ•è·å¼‚å¸¸æ ‡å‡†æ ¼å¼:try...catch...finally
+    //å˜å½¢æ ¼å¼:try...finally...
     /**
      * try{
-     *  ¿ÉÄÜ³öÏÖÎÊÌâµÄ´úÂë
+     *  å¯èƒ½å‡ºç°é—®é¢˜çš„ä»£ç 
      * }catch(SocketException e){
-     *  //²»ĞèÒª½øĞĞ´¦Àí
-     *  //¿Õ´¦Àí
+     *  //ä¸éœ€è¦è¿›è¡Œå¤„ç†
+     *  //ç©ºå¤„ç†
      * }
      */
     @Override
     public void run() {
-        //Ä£ÄâµçÓ°ÔºÒ»Ö±ÓĞÆ±
+        //æ¨¡æ‹Ÿç”µå½±é™¢ä¸€ç›´æœ‰ç¥¨
         while(true){
-            //Í¬²½»úÖÆ
+            //åŒæ­¥æœºåˆ¶
             try{
-                //»ñÈ¡Ëø
+                //è·å–é”
                 lock.lock() ;
                 if(tickets>0){
-                    //¼ÓÈëÑÓ³Ù²Ù×÷
+                    //åŠ å…¥å»¶è¿Ÿæ“ä½œ
                     try {
                         Thread.sleep(100) ;
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    System.out.println(Thread.currentThread().getName()+"ÕıÔÚ³öÊÛµÚ"+(tickets--)+"ÕÅÆ±");
+                    System.out.println(Thread.currentThread().getName()+"æ­£åœ¨å‡ºå”®ç¬¬"+(tickets--)+"å¼ ç¥¨");
                 }else {
                     break;
                 }
             }finally{
-                //ÊÔÍ¼ÊÍ·ÅËø¶ÔÏó
+                //è¯•å›¾é‡Šæ”¾é”å¯¹è±¡
                 lock.unlock() ;
             }
         }

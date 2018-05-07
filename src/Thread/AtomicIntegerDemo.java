@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * @author leo
  * @date 2018-05-07 15:04
- * @description: AtomicInteger£ºÖ§³ÖÔ­×ÓĞÔ¼ÆÊıÆ÷¡£
+ * @description: AtomicIntegerï¼šæ”¯æŒåŸå­æ€§è®¡æ•°å™¨ã€‚
  */
 public class AtomicIntegerDemo {
     public static void main(String[] args) {

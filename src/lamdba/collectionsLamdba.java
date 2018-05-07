@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @author leo
  * @date 2018-05-02 14:33
- * @description: ÅÅĞò·½·¨Ö®lamdba
+ * @description: æ’åºæ–¹æ³•ä¹‹lamdba
  */
 public class collectionsLamdba {
     static List<Student> list = new ArrayList<Student>();
@@ -23,12 +23,12 @@ public class collectionsLamdba {
     }
 
     /**
-     * ÅÅĞò²âÊÔ,Ê×ÏÈStudentÀàĞèÒª¼Ì³ĞComparable½Ó¿Ú
+     * æ’åºæµ‹è¯•,é¦–å…ˆStudentç±»éœ€è¦ç»§æ‰¿Comparableæ¥å£
      */
     @Test
     public void testSort(){
-        Collections.sort(list,Comparator.comparing(o -> o)); //²»ÖªËùÔÆĞ´·¨
-        Collections.sort(list,Student::compareTo); //É§±ÆÊ½Ğ´·¨ Á½¸ö±¾ÖÊÒ»Ñù,¶¼ÊÇµ÷ÓÃÁËStudentÖĞµÄcompareTo·½·¨
+        Collections.sort(list,Comparator.comparing(o -> o)); //ä¸çŸ¥æ‰€äº‘å†™æ³•
+        Collections.sort(list,Student::compareTo); //éªšé€¼å¼å†™æ³• ä¸¤ä¸ªæœ¬è´¨ä¸€æ ·,éƒ½æ˜¯è°ƒç”¨äº†Studentä¸­çš„compareToæ–¹æ³•
         System.out.println(list);
     }
 }

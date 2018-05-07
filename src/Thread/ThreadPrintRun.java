@@ -6,7 +6,7 @@ package Thread;
  * @date 2018-05-02 15:09
  * @description: 两个线程争夺锁的例子,两个线程分开输出123,456
  */
-public class ThreadTest implements Runnable {
+public class ThreadPrintRun implements Runnable {
     int i = 0;
 
     @Override

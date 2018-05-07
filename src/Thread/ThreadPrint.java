@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 public class ThreadPrint {
     @Test
     public void twoThread(){
-        ThreadTest t = new ThreadTest();
+        ThreadPrintRun t = new ThreadPrintRun();
         Thread t1 = new Thread(t);
         Thread t2 = new Thread(t);
         t1.setName("Ïß³Ì1");

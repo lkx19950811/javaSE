@@ -1,4 +1,4 @@
-package ThreadPrint;
+package Thread;
 
 
 /**

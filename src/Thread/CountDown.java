@@ -19,7 +19,7 @@ public class CountDown {
         CountDownLatch countDownLatch = new CountDownLatch(2);
         new Thread(()->{
             System.out.println("线程一");
-            countDownLatch.countDown();
+            countDownLatch.countDown(); //countDown数量减一
         }).start();
         new Thread(()->{
             System.out.println("线程二");

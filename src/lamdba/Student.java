@@ -1,5 +1,7 @@
 package lamdba;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.Random;
 
 /**
@@ -43,5 +45,11 @@ public class Student implements Comparable<Student>{
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
+    }
+    @Test
+    public void test(){
+        String abc = null + "sadfdsaf";
+        System.out.println(abc);
+        setName(abc);
     }
 }

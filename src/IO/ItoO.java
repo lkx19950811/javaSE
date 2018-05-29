@@ -1,5 +1,7 @@
 package IO;
 
+import org.junit.jupiter.api.Test;
+
 import java.io.*;
 
 /**
@@ -27,5 +29,9 @@ public class ItoO {
         }
         bufferedReader.close();
         bufferedWriter.close();
+    }
+    @Test
+    public void test1(){
+        System.out.println("123@1323".split("@")[1]);
     }
 }

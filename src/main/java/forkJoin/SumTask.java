@@ -35,7 +35,7 @@ public class SumTask extends RecursiveTask<Long> {
             }
             try {
                 //Thread.sleep(1000);
-            } catch (Exception e) {
+            } catch (Exception ignored) {
             }
             System.out.println(String.format("compute %d~%d = %d", start, end, sum));
             return sum;
